@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+@layer base {
+  :root {
+    --font-medieval: 'Cinzel', serif;
+    --font-serif: 'Crimson Text', serif;
+    
+    --background: 26 22 18;
+    --foreground: 212 197 169;
+    --card: 42 37 32;
+    --card-foreground: 212 197 169;
+    --popover: 42 37 32;
+    --popover-foreground: 212 197 169;
+    --primary: 139 115 85;
+    --primary-foreground: 26 22 18;
+    --secondary: 107 68 35;
+    --secondary-foreground: 212 197 169;
+    --muted: 42 37 32;
+    --muted-foreground: 139 115 85;
+    --accent: 92 26 26;
+    --accent-foreground: 212 197 169;
+    --destructive: 92 26 26;
+    --destructive-foreground: 212 197 169;
+    --border: 107 68 35;
+    --input: 107 68 35;
+    --ring: 139 115 85;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-medieval-copper;
+  }
+  body {
+    @apply bg-medieval-dark text-medieval-parchment font-serif;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(139, 115, 85, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(92, 26, 26, 0.05) 0%, transparent 50%);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medieval;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1612;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b4423;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b7355;
+}
+
+/* Parchment texture effect */
+.parchment-texture {
+  position: relative;
+  background: linear-gradient(135deg, #d4c5a9 0%, #c4b59a 100%);
+}
+
+.parchment-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+  pointer-events: none;
+}
+
+/* Glow effect utility */
+.medieval-glow {
+  box-shadow: 0 0 15px rgba(212, 197, 169, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.medieval-glow:hover {
+  box-shadow: 0 0 30px rgba(212, 197, 169, 0.6);
+}
